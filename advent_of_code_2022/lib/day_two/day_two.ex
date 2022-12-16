@@ -20,17 +20,13 @@ defmodule DayTwo do
     "C" => %{X: 2, Y: 6, Z: 7}
   }
 
-  def part_one do
-    @puzzle_input
-    |> Enum.map(&String.split/1)
-    |> Enum.map(&calculate_scores(&1, @part_one_strategy_guide))
-    |> Enum.reduce(0, fn input, acc -> input + acc end)
-  end
+  def part_one, do: solve(@part_one_strategy_guide)
+  def part_two, do: solve(@part_two_strategy_guide)
 
-  def part_two do
+  def solve(strategy_guide) do
     @puzzle_input
     |> Enum.map(&String.split/1)
-    |> Enum.map(&calculate_scores(&1, @part_two_strategy_guide))
+    |> Enum.map(&calculate_scores(&1, strategy_guide))
     |> Enum.reduce(0, fn input, acc -> input + acc end)
   end
 
